@@ -1,0 +1,17 @@
+## File contains an production/full envritoment, like a databases, third-party apps, and the target service
+## Usually running this file for demo/testing purposes with Prod mode
+
+services:
+  
+  redis:
+    container_name: edis-db
+    image: redis:alpine
+    command: redis-server
+    ports:
+      - "6379:6379"
+    networks:
+      - project-network
+
+networks:
+  project-network:
+    driver: bridge

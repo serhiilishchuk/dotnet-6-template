@@ -1,0 +1,17 @@
+
+## File contains an development envritoment, like a databases, third-party apps, etc.
+
+services:
+ 
+  redis:
+    container_name: redis-db
+    image: redis:alpine
+    command: redis-server
+    ports:
+      - "6379:6379"
+    networks:
+      - project-network
+
+networks:
+  project-network:
+    driver: bridge
